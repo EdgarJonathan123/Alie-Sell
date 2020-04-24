@@ -11,6 +11,8 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
 import { UserService } from './services/user.service';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { UserService } from './services/user.service';
     AppComponent,
     CRUDComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    SignInComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
