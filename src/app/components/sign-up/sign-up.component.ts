@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-sign-up',
@@ -12,4 +13,8 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+ 
+  addEvent(type: string, event: MatDatepickerInputEvent<Date>,newInput:HTMLInputElement) {
+    console.log(newInput.value);
+  }
 }
