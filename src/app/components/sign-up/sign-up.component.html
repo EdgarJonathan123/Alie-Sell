@@ -31,12 +31,12 @@
         </h5>
 
         <!--Card content-->
-        <div class="card-body px-lg-5 pt-5">
+        <div class="card-body px-lg-5 pt-5 bg-secondary">
 
             <!-- Form -->
-            <form class="text-center" style="color: dimgrey;">
+            <form class="text-center" style="color: black; ">
 
-                <!-- Datos Usuario -->
+                <!-- Nombre y Apellido -->
                 <div class="form-row">
                     <div class="col">
                         <!-- First name -->
@@ -53,13 +53,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Correo -->
-                <div class="md-form mt-3">
-                    <input type="email" class="form-control">
-                    <label>Correo</label>
-                </div>
-
                 <!-- Contrasenia -->
                 <div class="md-form mt-3">
                     <input type="password" class="form-control">
@@ -68,32 +61,38 @@
                         At least 8 characters and 1 digit
                     </small> -->
                 </div>
-
-                <!-- Phone number -->
-                <div class="md-form">
-                    <input type="password" class="form-control">
-                    <label>Numero de Telefono </label>
-                    <!-- <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
-                        Optional - for two step authentication
-                    </small> -->
+                <!-- Genero y Direccion -->
+                <div class="form-row mt-3">
+                    <!-- Genero -->
+                    <div class="col">
+                        <div class="md-form">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Genero
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">masculino</a>
+                                    <a class="dropdown-item" href="#">Femenino</a>
+                                </div>
+                            </div>
+                            <label>Genero</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="md-form">
+                            <input type="text" class="form-control">
+                            <label>Direccion</label>
+                        </div>
+                    </div>
                 </div>
-
-                <!-- Fechar Naciemiento -->
-                <div class="md-form">
-                    <mat-form-field>
-                        <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" class="form-control"
-                            (dateChange)="addEvent('change', $event,newInput)" #newInput>
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
-                </div>
-
-                <div class="form-row">
+                <!-- Fecha Nacimiento -->
+                <div class="form-row mt-3">
                     <div class="col">
                         <!-- First name -->
                         <div class="md-form">
-                            <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" class="form-control"
-                            (dateChange)="addEvent('change', $event,newInput)" #newInput>
+                            <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento"
+                                class="form-control" (dateChange)="addEvent('change', $event,newInput)" #newInput>
                         </div>
                     </div>
                     <div class="col">
@@ -105,7 +104,27 @@
                     </div>
                 </div>
 
-
+                <!-- Correo -->
+                <div class="md-form mt-3">
+                    <input type="email" class="form-control">
+                    <label>Correo</label>
+                </div>
+                <!-- Numero de Telefono -->
+                <div class="md-form">
+                    <input type="text" class="form-control">
+                    <label>Numero de Telefono </label>
+                    <!-- <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                                        Optional - for two step authentication
+                                    </small> -->
+                </div>
+                <!-- Imagen -->
+                <div class="md-form">
+                    <input type="text" class="form-control">
+                    <label>Url Imagen</label>
+                    <!-- <small id="materialRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+                                        Optional - for two step authentication
+                                    </small> -->
+                </div>
 
                 <!-- Sign up button -->
                 <button class="btn btn-primary btn-block">
@@ -124,4 +143,3 @@
 
 
 <!-- Material form register -->
-
