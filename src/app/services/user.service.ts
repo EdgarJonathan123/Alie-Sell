@@ -4,24 +4,49 @@ import { map } from "rxjs/operators";
 import { UserInterface } from '../models/user-interface';
 import { isNullOrUndefined } from 'util';
 import { Router } from "@angular/router";
+import { UserLogin } from '../models/userLogin';
 
-import  {UserData} from '../models/UserData';
+import { UserData } from '../models/UserData';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  URL_USER = 'http://192.168.1.11:3000/Usuario';
+  URL_USER = 'http://192.168.1.11:3000/user';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
 
   headers: HttpHeaders = new HttpHeaders({
     "Content-Type": "application/json"
   })
 
-  createCLient(user:UserData){
-    return this.http.post("http://192.168.1.11:3000/Usuario/crearCliente",user,{headers:this.headers});
+  createCLient(user: UserData) {
+    return this.http.post(this.URL_USER + "/createClient", user, { headers: this.headers });
+  }
+
+  existClient(correo:string, contrasenia:string) {
+
+    return this.http.post(
+      this.URL_USER + "/existClient",
+      {
+        "contrasenia": contrasenia,
+        "correo": correo
+      },
+      { headers: this.headers }
+    ).pipe(map(data => data));
+  }
+
+  //TODO: SET CURRENT USER
+  setUsuarioLocalStorage(correo: string, contra: string) {
+
+    const user: UserLogin = {
+      correo: correo,
+      contrasenia: contra
+    }
+
+    let user_string = JSON.stringify(user);
+    localStorage.setItem('UsuarioLogueado', user_string);
   }
 
 
@@ -76,6 +101,8 @@ export class UserService {
 
 
   //TODO: LOGIN
+
+
   Login(username) {
     const url = "http://localhost:3000/signUp";
 
@@ -87,11 +114,12 @@ export class UserService {
       .pipe(map(data => data));
   }
 
-  //TODO: SET CURRENT USER
+
   setCurrentUser(user: UserInterface) {
     let user_string = JSON.stringify(user);
     localStorage.setItem('UsuarioLogueado', user_string);
   }
+
   //TODO: GET CURRENT USER
   getCurrentUser() {
     let userCurrent = localStorage.getItem('UsuarioLogueado');

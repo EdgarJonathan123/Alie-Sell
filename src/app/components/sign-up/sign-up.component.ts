@@ -53,20 +53,13 @@ export class SignUpComponent implements OnInit {
     this.meses.push("Diciembre");
   }
 
-
-
-
-  addEvent(newInput: HTMLInputElement) {
-    console.log(newInput.value);
-  }
-
   crearCuenta(genero: HTMLInputElement, fechadia: HTMLInputElement, fechames: HTMLInputElement, fechaanio: HTMLInputElement) {
 
-    //obteniendo la fecha 
+    //obteniendo la fecha  y el genero 
     this.user.fecha_nacimiento = this.getFecha(fechadia.value,fechames.value,fechaanio.value);
     this.user.genero = this.getGenero(genero.value);
 
-    console.log(this.user);
+    // console.log(this.user);
 
     this.crudService.createCLient(this.user).subscribe(
       res =>{
