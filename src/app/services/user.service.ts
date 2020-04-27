@@ -4,16 +4,27 @@ import { map } from "rxjs/operators";
 import { UserInterface } from '../models/user-interface';
 import { isNullOrUndefined } from 'util';
 import { Router } from "@angular/router";
+
+import  {UserData} from '../models/UserData';
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  URL_USER = 'http://192.168.1.11:3000/Usuario';
+
+  constructor(private http: HttpClient, private router: Router) {}
+
 
   headers: HttpHeaders = new HttpHeaders({
     "Content-Type": "application/json"
   })
+
+  createCLient(user:UserData){
+    return this.http.post("http://192.168.1.11:3000/Usuario/crearCliente",user,{headers:this.headers});
+  }
+
+
 
   //TODO: GET USERS
   GetUsers() {
@@ -36,8 +47,8 @@ export class UserService {
 
   }
 
-  //TODO:UPDATE USER
 
+  //TODO:UPDATE USER
   UpdateUser(codu: string, username: string, firstname: string, lastname: string) {
     const url = "http://localhost:3000/updateUser";
 

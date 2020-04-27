@@ -5,7 +5,7 @@ import { HomeComponent } from "../components/home/home.component";
 import { LoginComponent } from "../components/login/login.component";
 import { SignInComponent } from '../components/sign-in/sign-in.component';
 import { SignUpComponent } from '../components/sign-up/sign-up.component';
-import { RegisterComponent} from '../components/register/register.component';
+// import { RegisterComponent} from '../components/register/register.component';
 import { AuthGuard } from "../guards/auth.guard";
 const routes: Routes = [
   {
@@ -28,10 +28,6 @@ const routes: Routes = [
   {
     path: 'SignUp',
     component: SignUpComponent
-  },
-  {
-    path: 'Reg',
-    component: RegisterComponent
   }
 ];
 
