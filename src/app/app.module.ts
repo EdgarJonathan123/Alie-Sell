@@ -12,9 +12,9 @@ import { AppRoutingModule } from './core/app-routing.module';
 import { AppComponent }       from './app.component';
 import { CRUDComponent }      from './components/crud/crud.component';
 import { HomeComponent }      from './components/home/home.component';
-import { LoginComponent }     from './components/login/login.component';
 import { SignInComponent }    from './components/sign-in/sign-in.component';
 import { SignUpComponent }    from './components/sign-up/sign-up.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 
 
@@ -23,9 +23,9 @@ import { SignUpComponent }    from './components/sign-up/sign-up.component';
     AppComponent,
     CRUDComponent,
     HomeComponent,
-    LoginComponent,
     SignInComponent,
     SignUpComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
