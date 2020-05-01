@@ -1,75 +1,99 @@
-<div class="container">
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" [routerLink]="['']" routerLinkActive="active">Alie-Sell</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/SignUp']" routerLinkActive="active">CrearCuenta</a><i
-                        class="fas fa-plus-circle"></i>
-                </li>
-
-            </ul>
-        </div>
-    </nav>
-
+<!--Header-part-->
+<div id="header">
+    Alie-Sell
 </div>
 
 
 
-<div class="d-flex justify-content-center mt-5">
-    <!-- Material form register -->
-    <div class="card px-lg-3">
 
-        <h5 class="card-header info-color white-text text-center mt-3">
-            <strong>Iniciar Session</strong>
-        </h5>
+<!-- barra de al lado xd -->
+<div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-fullscreen"></i>Full width</a>
+    <ul style="display: block;">
+        <li><a [routerLink]="['/SignIn']" routerLinkActive="router-link-active"><i class="icon icon-user"></i>
+                <span>Iniciar Sesion</span></a> </li>
+        <li><a [routerLink]="['/SignUp']" routerLinkActive="router-link-active"><i class="icon icon-user"></i>
+                <span>Crear Cuenta</span></a> </li>
+    </ul>
+</div>
 
-        <!--Card content-->
-        <div class="card-body px-lg-5 pt-5 bg-secondary">
 
-            <!-- Form -->
-            <form class="text-center" style="color: black; ">
 
-                <!-- correo -->
-                <div class="md-form mt-3">
-                    <input 
-                            placeholder="Introduce tu Correo" 
-                            type="text" class="form-control"
-                            #correoin
-                    >
-                    <label>Correo</label>
-                </div>
-                <div class="md-form mt-3">
-                    <input 
-                            placeholder="Introduce tu Contraseña" 
-                            type="password" class="form-control"
-                            #contraseniain
-                    >
-                    <label>Contraseña</label>
-                </div>
+<!--close-Header-part-->
 
-                <!-- Sign up button -->
-                <button class="btn btn-primary btn-block"  
-                    (click)="iniciar(correoin.value,contraseniain.value)"     
-                >
-                    Ingresar
-                </button>
-
-            </form>
-            <!-- Form -->
-
+<!-- Contenido -->
+<div id="content">
+    <div id="content-header">
+        <div id="breadcrumb">
+            <a class="tip-bottom">
+                <!-- <i class="icon-home"></i> -->
+            </a>
         </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span6">
+            </div>
+        </div>
+    </div>
 
+    <div id="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-content">
+
+                        <div class="d-flex justify-content-center mt-5">
+                            <!-- Material form register -->
+                            <div class="card px-lg-3">
+
+                                <h5 class="card-header info-color white-text text-center mt-3">
+                                    <strong>Iniciar Session</strong>
+                                </h5>
+
+                                <!--Card content-->
+                                <div class="card-body px-lg-5 pt-5 bg-secondary">
+
+                                    <!-- Form -->
+                                    <form class="text-center" style="color: black; ">
+
+                                        <!-- correo -->
+                                        <div class="md-form mt-3">
+                                            <input placeholder="Introduce tu Correo" type="text" class="form-control"
+                                                #correoin>
+                                            <label>Correo</label>
+                                        </div>
+                                        <div class="md-form mt-3">
+                                            <input placeholder="Introduce tu Contraseña" type="password"
+                                                class="form-control" #contraseniain>
+                                            <label>Contraseña</label>
+                                        </div>
+
+                                        <!-- Sign up button -->
+                                        <button class="btn btn-primary btn-block"
+                                            (click)="iniciar(correoin.value,contraseniain.value)">
+                                            Ingresar
+                                        </button>
+
+                                    </form>
+                                    <!-- Form -->
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Termina Contenido-->
+
+<!--Footer-part-->
+<div class="row-fluid">
+    <div id="footer" class="span12">
+        2020 &copy;Alie- Sell
     </div>
 </div>
-
-
-
-
-<!-- Material form register -->
+<!--end-Footer-part-->
