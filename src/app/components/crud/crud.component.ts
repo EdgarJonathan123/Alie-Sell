@@ -11,9 +11,9 @@ export class CRUDComponent implements OnInit {
   constructor(public crudService: UserService) { }
 
   ngOnInit(): void {
-    this.crudService.GetUsers().subscribe((res: UserInterface[]) => {
-      this.Usuarios = res;
-    })
+    // this.crudService.GetUsers().subscribe((res: UserInterface[]) => {
+    //   this.Usuarios = res;
+    // })
 
   }
   codu: string = "";

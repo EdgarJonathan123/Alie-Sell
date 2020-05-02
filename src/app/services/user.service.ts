@@ -1,3 +1,10 @@
+/**
+ * @packageDocumentation
+ * Este documento se encarga de conectar con el servidor backend
+ * creado con nodejs, se crea constantes para los  endpoints
+ * 
+ */
+
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
@@ -25,7 +32,7 @@ export class UserService {
     return this.http.post(this.URL_USER + "/createClient", user, { headers: this.headers });
   }
 
-  existClient(correo:string, contrasenia:string) {
+  existClient(correo: string, contrasenia: string) {
 
     return this.http.post(
       this.URL_USER + "/existClient",
@@ -35,6 +42,14 @@ export class UserService {
       },
       { headers: this.headers }
     ).pipe(map(data => data));
+  }
+
+
+/**
+ * @returns   Los usuarios con rol de cliente
+ */
+  getCLients(){
+    return this.http.get(this.URL_USER + "/getUsers");
   }
 
   //TODO: SET CURRENT USER
@@ -51,11 +66,11 @@ export class UserService {
 
 
 
-  //TODO: GET USERS
-  GetUsers() {
-    const url = "http://localhost:3000/getUsers";
-    return this.http.get(url);
-  }
+  //******************************************************************************
+  //******************************************************************************
+  //*****************Metodos Usados en el ejemplo xd *****************************
+  //******************************************************************************
+  //******************************************************************************
 
   //TODO: INSERT USERS
   InsertUser(username: string, firstname: string, lastname: string) {

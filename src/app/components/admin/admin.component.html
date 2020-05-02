@@ -1,32 +1,64 @@
 <!--Header-part-->
+<div id="header">
+    Alie-Sell
+</div>
+
+<!--top-Header-menu-->
+<div id="user-nav" class="navbar navbar-inverse">
+    <ul class="nav">
+        <li class="dropdown" id="profile-messages"><a title="" href="#" data-toggle="dropdown"
+                data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span
+                    class="text">Usuario</span><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a><i class="icon-key"></i> Cerrar Sesion</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<!-- barra de al lado xd -->
+<div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-fullscreen"></i>Full width</a>
+    <ul style="display: block;">
+        <li><a (click)="getClients()"><i class="icon icon-user"></i>
+                <span>Usuarios</span></a> </li>
+        <li><a [routerLink]="['/SignUp']" routerLinkActive="router-link-active"><i class="icon icon-user"></i>
+                <span>Reportes</span></a> </li>
+    </ul>
+</div>
+
+
 
 <!--close-Header-part-->
 
-
-<!--sidebar-menu-->
-<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard2</a>
-    <ul>
-        <li><a><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
-        <li><a><i class="icon icon-tint"></i> <span>Buttons &amp; icons</span></a></li>
-        <li><a><i class="icon icon-pencil"></i> <span>Eelements</span></a></li>
-
-        <li class="submenu active"> <a href="#"><i class="icon icon-file"></i> <span>Addons</span> <span
-                    class="label label-important">5</span></a>
-            <ul>
-                <li><a>Dashboard2</a></li>
-                <li><a>Gallery</a></li>
-                <li><a>Calendar</a></li>
-                <li><a>Invoice</a></li>
-                <li><a>Chat option</a></li>
-            </ul>
-        </li>
-
-    </ul>
-</div>
+<!-- Contenido -->
 <div id="content">
+    <div id="content-header">
+        <div id="breadcrumb">
+            <a class="tip-bottom">
+                <i class="icon-home"></i>
+            </a>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span6">
+            </div>
+        </div>
+    </div>
+
+    <div id="container-fluid">
+        <app-reg-tabla [clientes]="Clientes" [cabeceraTabla]="clienteHeader" ></app-reg-tabla>
+    </div>
+
+
+
 </div>
+<!-- Termina Contenido-->
+
 <!--Footer-part-->
 <div class="row-fluid">
-    <div id="footer" class="span12"> 2020 &copy; Alie-Sell xd
+    <div id="footer" class="span12">
+        2020 &copy;Alie- Sell
     </div>
-    <!--end-Footer-part-->
+</div>
+<!--end-Footer-part-->

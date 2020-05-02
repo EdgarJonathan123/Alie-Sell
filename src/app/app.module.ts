@@ -7,14 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { UserService } from './services/user.service';
 
-import { AppRoutingModule } from './core/app-routing.module';
+import { AppRoutingModule }         from './core/app-routing.module';
 //---- Componentes
-import { AppComponent }       from './app.component';
-import { CRUDComponent }      from './components/crud/crud.component';
-import { HomeComponent }      from './components/home/home.component';
-import { SignInComponent }    from './components/sign-in/sign-in.component';
-import { SignUpComponent }    from './components/sign-up/sign-up.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { AppComponent }             from './app.component';
+import { CRUDComponent }            from './components/crud/crud.component';
+import { HomeComponent }            from './components/home/home.component';
+import { SignInComponent }          from './components/sign-in/sign-in.component';
+import { SignUpComponent }          from './components/sign-up/sign-up.component';
+import { AdminComponent }           from './components/admin/admin.component';
+import { RegTablaComponent } from './components/reg-tabla/reg-tabla.component';
 
 
 
@@ -26,6 +27,7 @@ import { AdminComponent } from './components/admin/admin.component';
     SignInComponent,
     SignUpComponent,
     AdminComponent,
+    RegTablaComponent,
   ],
   imports: [
     BrowserModule,
