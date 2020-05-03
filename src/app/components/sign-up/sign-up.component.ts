@@ -28,9 +28,9 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  createCount(F: HTMLInputElement, M: HTMLInputElement) {
+  createCount(genero: HTMLInputElement) {
 
-    this.user.genero = this.getGenero(F.checked, M.checked);
+    this.user.genero = this.getGenero(genero.value);
     console.log('Usuario data:', this.user);
 
     this.crudService.createCLient(this.user).subscribe(
@@ -42,13 +42,13 @@ export class SignUpComponent implements OnInit {
 
   }
 
-  getGenero(f: boolean, m: boolean): string {
+  getGenero(genero: string): string {
 
     let result: string = 'm';
 
-    if (m == true) {
+    if (genero == 'Masculino') {
       result = 'm';
-    } else if (f == true) {
+    } else if (genero == 'Femenino') {
       result = 'f';
     }
 

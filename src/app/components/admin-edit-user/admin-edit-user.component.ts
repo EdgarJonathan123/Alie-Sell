@@ -66,9 +66,10 @@ export class AdminEditUserComponent implements OnInit {
 
 
 
-  editUser() {
+  editUser(genero:HTMLInputElement) {
 
     console.log('Estamos en editar usuario xd');
+    console.log('Genero Elegido ',genero.value);
   }
 
 }
