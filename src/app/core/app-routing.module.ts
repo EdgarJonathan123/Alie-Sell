@@ -5,6 +5,7 @@ import { HomeComponent } from "../components/home/home.component";
 import { SignInComponent } from '../components/sign-in/sign-in.component';
 import { SignUpComponent } from '../components/sign-up/sign-up.component';
 import { AdminComponent } from '../components/admin/admin.component';
+import { AdminEditUserComponent} from  '../components/admin-edit-user/admin-edit-user.component';
 import { AuthGuard } from "../guards/auth.guard";
 const routes: Routes = [
   {
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'Admin',
     component: AdminComponent//,
+    //canActivate:[AuthGuard]
+  },
+  {
+    path: 'Admin/EditUser/:id',
+    component: AdminEditUserComponent//,
     //canActivate:[AuthGuard]
   },
   {

@@ -15,7 +15,7 @@ import { HomeComponent }            from './components/home/home.component';
 import { SignInComponent }          from './components/sign-in/sign-in.component';
 import { SignUpComponent }          from './components/sign-up/sign-up.component';
 import { AdminComponent }           from './components/admin/admin.component';
-import { RegTablaComponent } from './components/reg-tabla/reg-tabla.component';
+import { AdminEditUserComponent } from './components/admin-edit-user/admin-edit-user.component';
 
 
 
@@ -27,7 +27,7 @@ import { RegTablaComponent } from './components/reg-tabla/reg-tabla.component';
     SignInComponent,
     SignUpComponent,
     AdminComponent,
-    RegTablaComponent,
+    AdminEditUserComponent,
   ],
   imports: [
     BrowserModule,

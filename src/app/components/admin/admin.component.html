@@ -19,7 +19,7 @@
 <!-- barra de al lado xd -->
 <div id="sidebar"> <a href="#" class="visible-phone"><i class="icon icon-fullscreen"></i>Full width</a>
     <ul style="display: block;">
-        <li><a (click)="getClients()"><i class="icon icon-user"></i>
+        <li><a  [routerLink]="['/Admin']" routerLinkActive="router-link-active" ><i class="icon icon-user"></i>
                 <span>Usuarios</span></a> </li>
         <li><a [routerLink]="['/SignUp']" routerLinkActive="router-link-active"><i class="icon icon-user"></i>
                 <span>Reportes</span></a> </li>
@@ -47,7 +47,56 @@
     </div>
 
     <div id="container-fluid">
-        <app-reg-tabla [clientes]="Clientes" [cabeceraTabla]="clienteHeader" ></app-reg-tabla>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+                        <h5>Clientes</h5>
+                    </div>
+
+                    <div class="widget-content nopadding">
+
+
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th>Accion</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>genero</th>
+                                    <th>Direccion</th>
+                                    <th>Correo</th>
+                                </tr>
+                            </thead>
+
+                            <!-- <div *ngIf="Clientes"> -->
+                            <tbody>
+                                <tr *ngFor="let cliente of Clientes">
+                                    <td>
+                                        <button (click)="getClient(cliente)" class="btn btn-success btn-mini">
+                                            editar
+                                        </button>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <button (click)="getClient(cliente)" class="btn btn-danger btn-mini">
+                                            eliminar
+                                        </button>
+                                    </td>
+                                    <td>{{cliente.NOMBRE}}</td>
+                                    <td>{{cliente.APELLIDO}}</td>
+                                    <td>{{cliente.GENERO}}</td>
+                                    <td class="center">{{cliente.DIRECCION}}</td>
+                                    <td class="center">{{cliente.CORREO}}</td>
+
+                                </tr>
+                            </tbody>
+                            <!-- </div> -->
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 
