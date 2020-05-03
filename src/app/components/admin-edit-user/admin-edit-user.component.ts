@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild , Renderer2, ElementRef} from '@angular/core';
 import { Cliente } from "../../models/UserData";
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastContainerDirective, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-admin-edit-user',
@@ -10,7 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AdminEditUserComponent implements OnInit {
 
-
+  @ViewChild(ToastContainerDirective, { static: true }) toastContainer: ToastContainerDirective;
+  @ViewChild("genero")genero:ElementRef;
 
   user: Cliente = {
     NOMBRE: '',
@@ -27,12 +29,14 @@ export class AdminEditUserComponent implements OnInit {
   constructor(
     private service: UserService,
     private router: Router,
-    private activedRoute: ActivatedRoute
+    private activedRoute: ActivatedRoute,
+    private toastr: ToastrService,
+    private render: Renderer2
   ) { }
 
   ngOnInit(): void {
 
-
+    this.toastr.overlayContainer = this.toastContainer;
 
     // Sirve para ver si nos pasaron un id como parametro 
     // ejemplo http://juego/5
@@ -44,15 +48,27 @@ export class AdminEditUserComponent implements OnInit {
     const params = this.activedRoute.snapshot.params;
     if (params.id) {
       this.service.getClientById(params.id)
-        .subscribe((res: Cliente[]) => {
+        .subscribe(
 
-          this.user= res[0];
-          // console.log('usuario: ',this.user);
+          (res: Cliente[]) => {
 
-        },
-          err => {
-            console.log("Error Al editar un usuario: ", err);
-          });
+            this.user = res[0];
+
+            if(this.user.GENERO=='m'){
+              this.render.setAttribute(this.genero.nativeElement,"value","Masculino");
+            }else{
+
+              this.render.setAttribute(this.genero.nativeElement,"value","Femenino");
+            }
+            // console.log('usuario: ',this.user);
+
+          },
+          (err) => {
+            console.log("Error al editar un usuario: ", err);
+
+          }
+          
+        );
 
       // this.gamesService.getGame(params.id).subscribe(
       //    res =>{
@@ -66,10 +82,12 @@ export class AdminEditUserComponent implements OnInit {
 
 
 
-  editUser(genero:HTMLInputElement) {
+  editUser(genero: HTMLInputElement) {
 
     console.log('Estamos en editar usuario xd');
-    console.log('Genero Elegido ',genero.value);
+    console.log('Genero Elegido ', genero.value);
+
+    this.toastr.success('Alerta con exito xd ');
   }
 
 }
