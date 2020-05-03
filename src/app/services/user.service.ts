@@ -23,15 +23,28 @@ export class UserService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-
   headers: HttpHeaders = new HttpHeaders({
     "Content-Type": "application/json"
   })
 
+
+
+/**
+ * Se crea un usuario con rol de cliente
+ * @param user datos del usuario
+ */
   createCLient(user: UserData) {
     return this.http.post(this.URL_USER + "/createClient", user, { headers: this.headers });
   }
 
+
+  /**
+   * Pregunta si existe algun cliente 
+   * que coinciada con el mismo numero de correo 
+   * y contrasenia
+   * @param correo 
+   * @param contrasenia 
+   */
   existClient(correo: string, contrasenia: string) {
 
     return this.http.post(
@@ -52,7 +65,26 @@ export class UserService {
     return this.http.get(this.URL_USER + "/getUsers");
   }
 
-  //TODO: SET CURRENT USER
+
+/**
+ * Obtiene Un usuario con rol cliente dado un id  
+ * @param id Id con el cual identificaremos al usuario
+ *           para ir a traerlo 
+ */
+ getClientById(id:number){
+  return this.http.get(this.URL_USER + "/getUsers/"+id) 
+  .pipe(map(data => data));
+ }
+
+
+/**
+ * @summary  Guarda en el local correo y contrasena del usuario
+ *           para saber quien ha iniciado session.
+ * 
+ * @param correo  identificador del usuario
+ * @param contra  idenfificador del usuario
+ * 
+ */
   setUsuarioLocalStorage(correo: string, contra: string) {
 
     const user: UserLogin = {
