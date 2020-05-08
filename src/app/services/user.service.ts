@@ -13,7 +13,7 @@ import { isNullOrUndefined } from 'util';
 import { Router } from "@angular/router";
 import { UserLogin } from '../models/userLogin';
 
-import { UserData } from '../models/UserData';
+import { UserData,Cliente } from '../models/UserData';
 @Injectable({
   providedIn: 'root'
 })
@@ -38,6 +38,20 @@ export class UserService {
   }
 
 
+
+/**
+ * Actuliza los campos de un usuario
+ * @param client  El objeto por el cual se va a cambiar el cliente
+ */
+   updateUser(client:Cliente){
+
+    console.log('cliente: ',client.IDUSUARIO);
+    const url = this.URL_USER+"/updateUser";
+    return this.http.put(url,client,{ headers: this.headers });
+
+   }
+
+
   /**
    * Pregunta si existe algun cliente 
    * que coinciada con el mismo numero de correo 
@@ -46,8 +60,7 @@ export class UserService {
    * @param contrasenia 
    */
   existClient(correo: string, contrasenia: string) {
-
-    return this.http.post(
+    return this.http.put(
       this.URL_USER + "/existClient",
       {
         "contrasenia": contrasenia,
@@ -55,6 +68,7 @@ export class UserService {
       },
       { headers: this.headers }
     ).pipe(map(data => data));
+
   }
 
 
