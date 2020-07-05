@@ -10,7 +10,12 @@
                 data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i> <span
                     class="text">Usuario</span><b class="caret"></b></a>
             <ul class="dropdown-menu">
-                <li><a><i class="icon-key"></i> Cerrar Sesion</a></li>
+                <li>
+                    <button (click)="cerrarSession()" class="btn btn-danger btn-mini">
+                        Cerrar Session
+                    </button>
+                    <!-- <a><i class="icon-key"></i> Cerrar Sesion</a> -->
+                </li>
             </ul>
         </li>
     </ul>

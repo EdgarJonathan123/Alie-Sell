@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
-import { Cliente } from "../../models/UserData";
+import { UserClient } from "../../models/UserData";
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastContainerDirective, ToastrService } from 'ngx-toastr';
@@ -14,13 +14,13 @@ export class AdminEditUserComponent implements OnInit {
   @ViewChild(ToastContainerDirective, { static: true }) toastContainer: ToastContainerDirective;
   @ViewChild("genero") genero: ElementRef;
 
-  user: Cliente = {
+  user: UserClient = {
     NOMBRE: '',
     APELLIDO: '',
     CONTRASENIA: '',
     CORREO: '',
     TELEFONO: '',
-    FOTO: '',
+    FOTOGRAFIA: '',
     GENERO: '',
     FECHA_NACIMIENTO: '',
     DIRECCION: ''
@@ -48,20 +48,20 @@ export class AdminEditUserComponent implements OnInit {
     const params = this.activedRoute.snapshot.params;
     if (params.id) {
 
-      this.user.IDUSUARIO = params.id;
+      this.user.ID = params.id;
 
       this.service.getClientById(params.id)
         .subscribe(
-          (res: Cliente[]) => {
+          (res: UserClient[]) => {
 
             this.user = res[0];
 
             console.log('Genero: ',this.genero);
 
-            if (this.user.GENERO == 'm') {
+            if (this.user.GENERO == 'M') {
               this.render.setAttribute(this.genero.nativeElement, "value", "Masculino");
             } else {
-              console.log('Entro a femenino');
+              // console.log('Entro a femenino');s
               this.render.setAttribute(this.genero.nativeElement, "value", "Femenino");
             }
             // console.log('usuario: ',this.user);

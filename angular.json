@@ -91,12 +91,11 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css"
-
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/jquery/dist/jquery.slim.min.js",
+              "node_modules/jquery/dist/jquery.slim.min.js"
             ]
           }
         },
@@ -128,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "emer"
+  "defaultProject": "emer",
+  "cli": {
+    "analytics": false
+  }
 }

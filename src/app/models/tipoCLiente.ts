@@ -1,3 +1,3 @@
 export interface TipoCliente {
-    TIPO_CLIENTE: number,
+    ROL: number,
 }

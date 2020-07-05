@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { TipoCliente } from '../../models/tipoCLiente';
-import { userRol } from '../../Constantes/Roles';
+import { ROL } from '../../Constantes/Roles';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,10 +12,16 @@ import { userRol } from '../../Constantes/Roles';
 
 export class SignInComponent implements OnInit {
 
-  constructor(private service: UserService) { }
+  constructor(
+    private service: UserService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
   }
+
+
 
   iniciar(correo: string, contrasenia: string) {
     console.log("correo: ", correo);
@@ -26,17 +33,25 @@ export class SignInComponent implements OnInit {
       .subscribe(
         (res: TipoCliente) => {
 
-          switch (res.TIPO_CLIENTE) {
-            case userRol.Cliente:
-              //aqui lo mandamos a la pagina principal de la tienda pero con sus datos de usuario
-              break;
-            case userRol.Admin:
-              //aqui mandamos a la pagina  dashboard del admin xd
-              break;
-            case userRol.Servicio:
-              //aqui mandamos a la pagina de servicio 
-              break;
+          console.log(res.ROL);
 
+          switch (res.ROL) {
+            case ROL.Cliente:
+              //aqui lo mandamos a la pagina principal de la tienda pero con sus datos de usuario
+              console.log("Estamos en cliente");
+              this.service.setUsuarioLocalStorage(correo,contrasenia);
+              break;
+            case ROL.Admin:
+              //aqui mandamos a la pagina  dashboard del admin xd
+              console.log("Estamos en admin");
+              this.service.setUsuarioLocalStorage(correo,contrasenia);
+              this.router.navigate(['/Admin']);
+              break;
+            case ROL.root:
+              //aqui mandamos a la pagina de servicio 
+              console.log("Estamos en usuario root");
+              this.service.setUsuarioLocalStorage(correo,contrasenia);
+              break;
           }
 
         },

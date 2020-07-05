@@ -1,5 +1,5 @@
-export enum userRol {
+export enum ROL {
     Admin = 1,
-    Servicio,
+    root,
     Cliente,
 }

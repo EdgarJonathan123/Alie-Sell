@@ -25,6 +25,23 @@ export interface Cliente {
     FOTO?: string,
     GENERO?: string,
     FECHA_NACIMIENTO?: string,
-    FECHA_REGISTRO?:string,
+    FECHA_REGISTRO?: string,
     DIRECCION?: string
+}
+
+export interface UserClient {
+    ID?: number,
+    USERNMAE?: string,
+    CONTRASENIA?: string,
+    NOMBRE?: string,
+    APELLIDO?: string,
+    CORREO?: string,
+    TELEFONO?: string,
+    FOTOGRAFIA?: string,
+    GENERO?: string,
+    FECHA_NACIMIENTO?: string,
+    FECHA_REGISTRO?: string,
+    DIRECCION?: string,
+    ESTADO?: number,
+    ROL?: string
 }
