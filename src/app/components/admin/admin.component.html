@@ -26,8 +26,10 @@
     <ul style="display: block;">
         <li><a  [routerLink]="['/Admin']" routerLinkActive="router-link-active" ><i class="icon icon-user"></i>
                 <span>Usuarios</span></a> </li>
-        <li><a [routerLink]="['/SignUp']" routerLinkActive="router-link-active"><i class="icon icon-user"></i>
+        <li><a [routerLink]="['#']" routerLinkActive="router-link-active"><i class="icon icon-user"></i>
                 <span>Reportes</span></a> </li>
+        <li><a [routerLink]="['/CreateUser']" routerLinkActive="router-link-active"><i class="icon icon-user"></i>
+                <span>Crear Usuario</span></a> </li>
     </ul>
 </div>
 
@@ -53,7 +55,8 @@
 
     <div id="container-fluid">
         <div class="row-fluid">
-            <div class="span12">
+            <div class="span2" toastContainer></div>
+            <div class="span10">
                 <div class="widget-box">
                     <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
                         <h5>Clientes</h5>
@@ -82,7 +85,7 @@
                                             editar
                                         </button>
                                         &nbsp;&nbsp;&nbsp;
-                                        <button (click)="getClient(cliente)" class="btn btn-danger btn-mini">
+                                        <button (click)="deleteUser(cliente)" class="btn btn-danger btn-mini">
                                             eliminar
                                         </button>
                                     </td>

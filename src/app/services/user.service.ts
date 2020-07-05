@@ -42,10 +42,20 @@ export class UserService {
    * @param client  El objeto por el cual se va a cambiar el cliente
    */
   updateUser(client: UserClient) {
-    console.log('cliente: ', client.ID);
+    // console.log('cliente: ', client.ID);
     const url = this.URL_USER + "/updateUser";
     return this.http.put(url, client, { headers: this.headers });
 
+  }
+
+/**
+ *Elimina el usuario dado un id como parametro 
+ * @param id 
+ */
+  deleteUser(id:number)
+  {
+    return this.http.delete(this.URL_USER + "/delete/" + id)
+      .pipe(map(data => data))
   }
 
 

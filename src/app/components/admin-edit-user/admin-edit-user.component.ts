@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, Renderer2, ElementRef } from '@angular/core';
 import { UserClient } from "../../models/UserData";
+import { respuestServer} from '../../models/RespuestaServer';
 import { UserService } from '../../services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastContainerDirective, ToastrService } from 'ngx-toastr';
@@ -55,8 +56,6 @@ export class AdminEditUserComponent implements OnInit {
           (res: UserClient[]) => {
 
             this.user = res[0];
-
-            console.log('Genero: ',this.genero);
 
             if (this.user.GENERO == 'M') {
               this.render.setAttribute(this.genero.nativeElement, "value", "Masculino");
@@ -118,16 +117,13 @@ export class AdminEditUserComponent implements OnInit {
 
       this.service.updateUser(this.user)
       .subscribe(
-        (res) =>{
-            console.log("Respuesta: ",res);
+        (res:respuestServer) =>{
+            this.toastr.success(res.message)
         },
         (err)=>{
           console.error(err);
         }
       );
-
-      this.toastr.success('Todo funciono con exito xd');
-
     }
 
   }
